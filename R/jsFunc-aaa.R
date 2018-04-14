@@ -29,11 +29,13 @@ jsFuncHelper <- function(fxn, params) {
   fxn <- paste0("shinyjs-", fxn)
 
   # respect Shiny modules/namespaces
-  if (inherits(session , "session_proxy")) {
-    if ("id" %in% names(params)) {
-      params[['id']] <- session$ns(params[['id']])
-    }
-  }
+  # if (inherits(session , "session_proxy")) {
+  #   if (!is.null(params[['id']])) {
+  #     print(params[['id']])
+  #     params[['id']] <- session$ns(params[['id']])
+  #     print(params[['id']])
+  #   }
+  # }
 
   # call the javascript function
   session$sendCustomMessage(
